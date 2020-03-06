@@ -372,8 +372,7 @@ def directed_policy_iterating(pi_name, scoring="sum"):
     return old_pi_name
 
 def calc_similarity(pi_1, pi_2):
-    maximum = 0
-    actual = 0
+    maximum, actual = 0, 0
     for s in S:
         num_actions = len(A(s))
         if num_actions == 1:
