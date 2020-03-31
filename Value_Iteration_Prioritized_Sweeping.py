@@ -297,7 +297,7 @@ def round_robin(pi_names, scoring):
         average_score = calc_average_score(terminals[i], scoring)
         scores.append(average_score)
 
-        print(f"{pi_names[i]}: {average_score * 100:.4f}")
+        print(f"{pi_names[i]}: {average_score:.4f}")
 
     print()
     

@@ -157,3 +157,32 @@ fig.tight_layout()
 plt.savefig("data.png", dpi=1200)
 plt.show()
 """
+
+pi_names = ["optimal_s", "sum_g100"]
+pi_terms = [vips.pickle_load(f"./Terminals/{name}.pickle") for name in pi_names]
+
+n_terminals = 46
+
+y0 = [0] * 46
+y1 = [0] * 46
+
+for pos, p in pi_terms[0].items():
+    y0[vips.pos_tile_sum(pos)] += p
+
+for pos, p in pi_terms[1].items():
+    y1[vips.pos_tile_sum(pos)] += p          
+
+x = np.arange(n_terminals)
+width = 0.4
+fig, ax = plt.subplots()
+
+rects1 = ax.bar(x - width/2, y0, width, label=pi_names[0])
+rects2 = ax.bar(x + width/2, y1, width, label=pi_names[1])
+
+ax.set_ylabel('Sannolikhet')
+ax.set_xlabel("Slutpoäng")
+ax.set_title('Sannolikhet för slutpoäng, summering')
+ax.legend()
+fig.tight_layout()
+
+plt.show()
