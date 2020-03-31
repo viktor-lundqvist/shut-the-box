@@ -1,2 +1,2 @@
 # Shut-the-box
-Mitt gymnasiearbete
+Mitt gymnasiearbete om spelet Shut the Box.
